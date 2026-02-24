@@ -50,5 +50,5 @@ meta:
   (by providing very high-level abstractions, plus exposing more
   limited versions as mid- & low-level abstractions & asking user
   to implement their own abstractions as needed)
-  [1]: https://github.com/andrew-chang-dewitt/maze-robot
+
 [1]: https://github.com/andrew-chang-dewitt/maze-robot
