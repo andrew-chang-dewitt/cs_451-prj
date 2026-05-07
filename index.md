@@ -57,7 +57,11 @@ Swarm struct:
 
 Maze features:
 
-- [ ] ?
+features necessary to support robot in distributed implementation
+
+- [ ] mini (multi-threaded?) server on tcp
+  - [ ] ...list here maze methods as endpoints
+  - [ ] + logger endpoint?
 
 Bonus:
 
