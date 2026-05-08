@@ -134,8 +134,9 @@ system design will look like the follow:
 ```
 
 a swarm of robots (represented in this implementation as a set of FABRIC nodes
-on the same network, each running the text-robot binary) can work together to
-solve a maze by the following steps:
+on the same network, each utilizing a modified version of the existing
+`TextRobot` interface) can work together to solve a maze by the following
+steps:
 
 1. each bot establishes a swarm connection (see note)
 2. then each bot enters the maze (by establishing TCP connection to a single
@@ -174,23 +175,23 @@ with `N` **bot nodes (2)** (where `N > 0`) & an optional **monitor node (3)**.
 ```no-linenums
                                                    +====== monitor ======+
                                                   ||                     ||
- +===== bot node(s) =======+     +-·-·-·-·-·-·-·-udp·->[   swarm     ]<-·udp·+
-||                         ||    · { to monitor } ||   [ connection  ]   ||  |
+ +===== bot node(s) =======+     +-·-·-·-·-·-·-·-udp·->[--- swarm ---]<-·udp·+
+||                         ||    · { to monitor } ||   [ connection -]   ||  |
 || [---- solution -----]   ||    |                ||         |           ||  ·
 || [---- program  -----]   ||    ·                ||         v           ||  |
-||           | ^           ||    |                ||   [   logger    ]   ||  ·
+||           | ^           ||    |                ||   [-- logger ---]   ||  ·
 ||           v |           ||    ·                ||                     ||  |
 || [---- robot api ----]   ||    |                 +=====================+   ·
 ||   | ^       | ^         ||<-·-+                                           |
 ||   | |       v |         ||    |                 +===== maze node =====+   ·
-||   | |  [   swarm    ]-·-udp-·-+ { to peers }   ||                     ||  |
-||   | |  [ connection ]<-·udp·-·+ { from peers } ||   [ data ][ udp ]·-·udp·+
+||   | | [--- swarm ---]-·-udp-·-+ { to peers }   ||                     ||  |
+||   | | [- connection ]<-·udp·-·+ { from peers } ||   [ data ][ udp ]·-·udp·+
 ||   | |                   ||    |                ||     | ^    | ^      ||
 ||   | |                   ||-·-·+                ||     v |    v |      ||
-||   v |                   ||                     ||   [  state api  ]   ||
-|| [  dist-bot  ]----------tcp---+                ||         | ^         ||
+||   v |                   ||                     ||   [- state api -]   ||
+|| [- dist-bot -]----------tcp---+                ||         | ^         ||
 || [ controller ]<---------tcp-+ |                ||         v |         ||
-||                         ||  | +---------------tcp-->[  dist-maze  ]   ||
+||                         ||  | +---------------tcp-->[- dist-maze -]   ||
  +=========================+   +-----------------tcp---[ comms layer ]   ||
                                                   ||                     ||
                                                    +=====================+

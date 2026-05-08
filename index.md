@@ -33,6 +33,7 @@ left to be done before this proof-of-concept is functional.
 
 Shared libs:
 
+- [x] Detailed system design
 - [ ] Networking abstraction _**[in progress in `swarm/net`]**_
 
   a layer for simplifying sharing data via message passing (using UDP broadcast
@@ -43,7 +44,7 @@ Robot features:
 - [ ] `DistRobot`, Robot trait method implementations
   - [ ] `DistRobot::get_internal`
 - [ ] Add Robot collision functionality
-  - [ ] new error to be raise during Robot::go when another Robot is in the way
+  - [ ] new error to be raised during Robot::go when another Robot is in the way
 - [ ] Swarm functionality
   - [ ] `DistRobot::swarm_join() -> Swarm`
   - [ ] `DistRobot::swarm_leave() -> Swarm`
@@ -51,7 +52,8 @@ Robot features:
 Swarm struct:
 
 - [ ] `Swarm::send<T>(data: T) -> Result<(), ?>`
-- [ ] `Swarm::register_listener_for<T>(fn: Fn(T) -> Result<(), ?>)`
+- [ ] `Swarm::register_listener_for<T, F>(fn: Fn(T, F) -> Result<(), ?>)` where
+      F might be SocketAddr or some other way of identifying the message sender
 - [ ] `Swarm::start_listening()`
 - [ ] `Swarm::stop_listening()`
 
