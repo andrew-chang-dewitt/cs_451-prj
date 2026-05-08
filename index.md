@@ -40,8 +40,8 @@ Shared libs:
 
 Robot features:
 
-- [ ] Default Robot trait method implementations
-  - [ ] `Robot::get_internal`
+- [ ] `DistRobot`, Robot trait method implementations
+  - [ ] `DistRobot::get_internal`
 - [ ] Add Robot collision functionality
   - [ ] new error to be raise during Robot::go when another Robot is in the way
 - [ ] Swarm functionality
@@ -59,9 +59,21 @@ Maze features:
 
 features necessary to support robot in distributed implementation
 
-- [ ] mini (multi-threaded?) server on tcp
-  - [ ] ...list here maze methods as endpoints
-  - [ ] + logger endpoint?
+- [ ] `DistMazeServer`, a mini (multi-threaded?) server on tcp w/ two endpoints:
+  - [ ] `look_dir(Req<Direction>) -> Response<Cell>`
+  - [ ] `move_dir(Req<Direction>) -> Response<Result<(), MazeError>>`
+
+- [ ] `DistMazeClient`, for internal use by the `DistRobot` & handles error
+      responses so they don't bubble up to the `Robot`
+  - [ ] `look_dir(Direction) -> Cell`
+  - [ ] `move_dir(Direction) -> Result<(), MazeError>`
+
+Monitor:
+
+a third-party observer process--used for all other nodes to send data too like a stdout buffer
+
+- [ ] Swarm connection to receive messages with
+- [ ] logger handler that simply echos messages to stdout
 
 Bonus:
 
