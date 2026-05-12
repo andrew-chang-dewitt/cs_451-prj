@@ -176,7 +176,7 @@ with `N` **bot nodes (2)** (where `N > 0`) & an optional **monitor node (3)**.
                                                    +====== monitor ======+
                                                   ||                     ||
  +===== bot node(s) =======+     +-·-·-·-·-·-·-·-udp·->[--- swarm ---]<-·udp·+
-||                         ||    · { to monitor } ||   [ connection -]   ||  |
+||                         ||    · { to monitor } ||   [--- client --]   ||  |
 || [---- solution -----]   ||    |                ||         |           ||  ·
 || [---- program  -----]   ||    ·                ||         v           ||  |
 ||           | ^           ||    |                ||   [-- logger ---]   ||  ·
@@ -185,14 +185,14 @@ with `N` **bot nodes (2)** (where `N > 0`) & an optional **monitor node (3)**.
 ||   | ^       | ^         ||<-·-+                                           |
 ||   | |       v |         ||    |                 +===== maze node =====+   ·
 ||   | | [--- swarm ---]-·-udp-·-+ { to peers }   ||                     ||  |
-||   | | [- connection ]<-·udp·-·+ { from peers } ||   [ data ][ udp ]·-·udp·+
+||   | | [--- client --]<-·udp·-·+ { from peers } ||   [ data ][ udp ]·-·udp·+
 ||   | |                   ||    |                ||     | ^    | ^      ||
 ||   | |                   ||-·-·+                ||     v |    v |      ||
 ||   v |                   ||                     ||   [- state api -]   ||
 || [- dist-bot -]----------tcp---+                ||         | ^         ||
-|| [ controller ]<---------tcp-+ |                ||         v |         ||
+|| [-- client --]<---------tcp-+ |                ||         v |         ||
 ||                         ||  | +---------------tcp-->[- dist-maze -]   ||
- +=========================+   +-----------------tcp---[ comms layer ]   ||
+ +=========================+   +-----------------tcp---[-- server ---]   ||
                                                   ||                     ||
                                                    +=====================+
 ```
