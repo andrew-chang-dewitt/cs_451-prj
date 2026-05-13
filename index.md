@@ -18,7 +18,8 @@ built off of the existing
 implementation.
 
 - See [assignment.md](./assignment.md) for given requirements.
-- See [docs/design.md](./docs/design.md) for system design.
+- See [docs/final.pdf](./docs/final.pdf) for the submitted documentation deliverable.
+- See [docs/design.md](./docs/design.md) for system design (submitted as the project update document).
 - Source code is in original project's repo
   [andrew-chang-dewitt/maze-robot](https://github.com/andrew-chang-dewitt/maze-robot/tree/swarm/main)
   with work for this implementation being done on the `swarm/main` branch,
