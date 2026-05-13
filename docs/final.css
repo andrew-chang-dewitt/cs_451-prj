@@ -89,7 +89,16 @@ hgroup.titlegroup p {
 
 @media print {
   :root {
+    --fonts-size-tiny: 6pt;
+    --fonts-size-small: 8pt;
+    --fonts-size-regular: 9pt;
+    --fonts-size-regular-medium: 11pt;
+    --fonts-size-medium: 14pt;
+    --fonts-size-large: 16pt;
+    --fonts-size-extra-large: 20pt;
+    --fonts-size-huge: 24pt;
     --fonts-size-titlepage: 32pt;
+    font-size: var(--fonts-size-regular) !important;
   }
   p,
   ol,
