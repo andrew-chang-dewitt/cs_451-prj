@@ -1,8 +1,9 @@
 ---
-title: "`bot-swarm`: extending `maze-robot` to run on a swarm"
+title: "[WIP] `bot-swarm`: extending `maze-robot` to run on a swarm"
 description: "Design document created in planning to extend my existing project, `andrew-chang-dewitt/maze-robot`, with the ability to build a swarm of robots & solve mazes using distributed & parallel approach. Details goals & scope, explores a possible system design, & begins to think about test inputs & outputs."
 keywords:
   - "project: maze robot"
+  - "work in progress"
   - "rust"
   - "distributed systems"
   - "system design"
@@ -13,8 +14,8 @@ keywords:
   - "project planning"
 meta:
   byline: Andrew Chang-DeWitt
-  published: "2026-02-24T11:30-06:00"
-  updated: "2026-04-10T08:30-06:00"
+  published: 2026-02-24T11:30-06:00
+  updated: 2026-04-10T08:30-06:00
 ---
 
 ## Contents

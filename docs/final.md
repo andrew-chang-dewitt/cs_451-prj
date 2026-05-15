@@ -26,7 +26,7 @@ Spring 2026
 ## Introduction
 
 `maze-robot` :ref[maze-robot] is a teaching toy for young children to learn
-programming without screens. Instead of writing text code, children build
+programming without screens. Instead of writing code using text, children build
 programs using physical puzzle pieces; the robot scans them, compiles the
 result to machine code, & executes it to explore a maze. As part of building
 that project, I wrote a text-based simulation environment — a Rust library of
