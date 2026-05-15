@@ -6,7 +6,7 @@ meta:
   published: 2026-05-12T00:00-06:00
 ---
 
-::ref-reset
+::ref-reset{}
 
 ::ref-item{type="online-doc" id="maze-robot" authors="Andrew Chang-DeWitt" year="2026" title="maze-robot" website="GitHub" retreived="May 12, 2026" link="https://github.com/andrew-chang-dewitt/maze-robot/tree/swarm/main"}
 
@@ -135,10 +135,10 @@ describes a Maze.
 
 A User can program a `Robot` to solve such mazes using the core API:
 
-- <code>Robot:&ZeroWidthSpace;:&ZeroWidthSpace;look_dir(Direction) -> Result<Cell, MazeError></code>, which can inspect
+- `Robot::look_dir(Direction) -> Result<Cell, MazeError>`, which can inspect
   any of the 4 cells directly neighboring the one the robot is currently
   occupying.
-- <code>Robot:&ZeroWidthSpace;:&ZeroWidthSpace;move_dir(Direction) -> Result<(), MazeError></code>, which has the robot
+- `Robot::move_dir(Direction) -> Result<(), MazeError>`, which has the robot
   attempt to move one cell in the given direction.
 
 For example, a hardcoded solution to the above maze might look like this:
@@ -240,7 +240,7 @@ robot.try_recv::<MyMsg, 32>()?;  // non-blocking receive
 
 The `Cell` type returned by `peek` has four variants: `Open`, `Wall`, `Finish`,
 & `Occupied(u32)` (another robot is present). `go` returns
-<code>Err(MazeError:&ZeroWidthSpace;:&ZeroWidthSpace;MoveError)</code> if the target cell is a wall or is occupied.
+`Err(MazeError::MoveError)` if the target cell is a wall or is occupied.
 
 ## Limitations
 
@@ -312,7 +312,8 @@ stdout, so an operator can watch the swarm explore in real time rather than
 waiting for a bot to reach the finish.
 
 The more interesting addition would be a coordinate system reconciliation
-utility in the library. Right now, when a bot receives a <code>Cell:&ZeroWidthSpace;:&ZeroWidthSpace;Occupied(id)</code> response, it knows another robot is in an adjacent cell but can't do anything
+utility in the library. Right now, when a bot receives a `Cell::Occupied(id)`
+response, it knows another robot is in an adjacent cell but can't do anything
 useful with that information. The robot's ID & the direction of the occupied
 cell together give a known spatial relationship between the two bots'
 positions: bot A is one cell north of bot B, which means A's `(0, 0)` & B's
@@ -340,4 +341,4 @@ ordering or delivery. The `Swarm` UDP broadcast layer already provides the
 transport; the CRDT would be the data structure sitting on top of it, replacing
 the ad-hoc broadcast messages the current implementation uses for coordination.
 
-::ref-list
+::ref-list{}
